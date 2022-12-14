@@ -8,6 +8,7 @@ import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import questions.SearchPageNoResultsQuestion;
 import questions.SearchPageQuestion;
 import tasks.SearchPageTask;
 import userInterfaces.SearchPage;
@@ -27,8 +28,8 @@ public class SearchGuideStepDefinition {
         theActorCalled("user").wasAbleTo(Open.browserOn(searchPage));
     }
 
-    @When("^El usuario ingrea un codigo valido (.*)$")
-    public void elUsuarioIngreaUnCodigoValidoCodigoCorrecto(String data) {
+    @When("^El usuario ingresa un codigo (.*)$")
+    public void elUsuarioIngresaUnCodigo(String data) {
         theActorInTheSpotlight().wasAbleTo(
                 SearchPageTask.searchPageTaskInstrumented(data)
         );
@@ -39,6 +40,15 @@ public class SearchGuideStepDefinition {
         theActorInTheSpotlight().should(
                 GivenWhenThen.seeThat(
                         SearchPageQuestion.searchPageQuestionInstrumented(data)
+                )
+        );
+    }
+
+    @Then("^El usuario no ve ningun resultado (.*)$")
+    public void elUsuarioNoVeNingunResultadoTextoValidacion(String data) {
+        theActorInTheSpotlight().should(
+                GivenWhenThen.seeThat(
+                        SearchPageNoResultsQuestion.searchPageNoResultsQuestionInstrumented(data)
                 )
         );
     }

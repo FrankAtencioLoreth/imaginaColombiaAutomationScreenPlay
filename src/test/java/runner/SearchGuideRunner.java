@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "src/test/resources/features/SearchGuide.feature",
-        tags = {"@BusquedaConResultado"},
+        tags = {"@smokeTest"},
         glue = "stepDefinition",
         snippets = SnippetType.CAMELCASE
 )

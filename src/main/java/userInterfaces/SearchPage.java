@@ -15,4 +15,12 @@ public class SearchPage extends PageObject {
     public static final Target detailLbl = Target.the("etiqueta de respuesta").
             located(By.xpath("//p[text()='AWB Details']"));
 
+    public static final Target modal = Target.the("modal").located(By.id("cardContent"));
+
+    public static final Target messageModal = Target.the("mensaje de no encontrado").
+            located(By.xpath("//DIV[@class='q-mb-lg'][text()='Could not find AWB 354-4556. Please check your request and try again.']"));
+
+    public static final Target modalButton = Target.the("boton modal").
+            located(By.xpath("(//span[@class='q-btn__wrapper col row q-anchor--skip'])[2]"));
+
 }
